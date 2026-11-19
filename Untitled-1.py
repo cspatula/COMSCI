@@ -1,13 +1,13 @@
-def formatlist(arr):
-  userinput = ""
-  origlist = []
+# activitySchoolManagement.py
 
-  while userinput != "done":
-    userinput = input("what do you want in your list type "done" if finished: ")
-    if userinput == "done":
-      break
-      
-      else:
-        userinput.append("")
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-print formatlist(userinput)
+# Instantiate the object person1
+person1 = Person("Lina", 20)
+
+# Display its information
+print(f"Name: {person1.name}")
+print(f"Age:{person1.age}")
