@@ -4,18 +4,22 @@
 class Person:
     def __init__(self, name, age):
         self.name = name
-        self.__age = age  # Fixed: Added double underscore to make it private
+        self.__age = age
 
     def get_age(self):
         return self.__age
-    
-# Instantiate the object person1
-person1 = Person("Lina", 20)
 
-# Display its information using person1 (lowercase 'p')
-print(f"Name: {person1.name}")
-print(f"Age: {person1.get_age()} (note this age is privately accessed)")
 
-# Reflection: Why is it better to access __age through get_age()?
-# Using get_age() protects the private data from accidental direct changes 
-# and gives us control over how the value is accessed.
+# Child class inheriting from Person
+class Student(Person):
+    def study(self):
+        print(f"{self.name} is studying")
+
+
+# Instantiate a Student object
+student1 = Student("Lina", 20)
+
+# Test inherited features and the new method
+print(f"Name: {student1.name}")
+print(f"Age: {student1.get_age()} (note this age is privately accessed)")
+student1.study()
