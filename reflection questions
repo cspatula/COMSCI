@@ -1,0 +1,19 @@
+Encapsulation
+
+Encapsulating __age means that it cannot be accessed or altered externally. Information can then be safely retrieved using get_age().
+
+Inheritance
+
+Using ‘class Student(Person):’ inherits Person’s __init__, name and get_age() methods – no need to manually recreate these.
+
+Polymorphism
+
+Each subclass has its own role() method. Therefore, when person.role() is executed, the relevant role() for that object type will be used.
+
+Abstraction
+
+By inheriting from ABC and adding @abstractmethod, Person() cannot be directly instantiated. All subclasses are then required to have a role() method.
+
+Combining features:
+
+Whilst abstraction creates the structure and guidelines, encapsulation manages the common variable (__age). Inheritance allows this structure to be applied to different roles. Polymorphism then enables a single list to execute role() consistently for all roles.
