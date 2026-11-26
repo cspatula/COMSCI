@@ -1,4 +1,3 @@
-# activitySchoolManagement.py
 from abc import ABC, abstractmethod
 
 
@@ -31,12 +30,37 @@ class Teacher(Person):
         print(f"{self.name} is a teacher")
 
 
-# Test concrete subclasses
+class Principal(Person):
+    def manage_school(self):
+        print(f"{self.name} is managing the school")
+
+    def role(self):
+        print(f"{self.name} is the principal")
+
+
+# Create objects for all classes
 student = Student("Lina", 20)
 teacher = Teacher("Mona", 30)
+principal = Principal("Mr. X", 55)
 
+# Test Student
+print(f"Name: {student.name}")
+print(f"Age: {student.get_age()}")
+student.study()
 student.role()
+
+print("-" * 25)
+
+# Test Teacher
+print(f"Name: {teacher.name}")
+print(f"Age: {teacher.get_age()}")
+teacher.teach()
 teacher.role()
 
-# Attempting to instantiate Person directly raises a TypeError:
-# p = Person("Ali", 25)  # TypeError: Can't instantiate abstract class Person without an implementation for abstract method 'role'
+print("-" * 25)
+
+# Test Principal
+print(f"Name: {principal.name}")
+print(f"Age: {principal.get_age()}")
+principal.manage_school()
+principal.role()
