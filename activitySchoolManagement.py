@@ -38,29 +38,18 @@ class Principal(Person):
         print(f"{self.name} is the principal")
 
 
-# Create objects for all classes
-student = Student("Lina", 20)
-teacher = Teacher("Mona", 30)
-principal = Principal("Mr. X", 55)
+class GuidanceCounselor(Person):
+    def assist_students(self):
+        print(f"{self.name} is assisting students")
 
-# Test Student
-print(f"Name: {student.name}")
-print(f"Age: {student.get_age()}")
-student.study()
-student.role()
+    def role(self):
+        print(f"{self.name} is a guidance counselor")
 
-print("-" * 25)
 
-# Test Teacher
-print(f"Name: {teacher.name}")
-print(f"Age: {teacher.get_age()}")
-teacher.teach()
-teacher.role()
+# Create and test a GuidanceCounselor object
+counselor = GuidanceCounselor("Sara", 35)
 
-print("-" * 25)
-
-# Test Principal
-print(f"Name: {principal.name}")
-print(f"Age: {principal.get_age()}")
-principal.manage_school()
-principal.role()
+print(f"Name: {counselor.name}")
+print(f"Age: {counselor.get_age()}")
+counselor.assist_students()
+counselor.role()
