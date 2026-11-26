@@ -1,19 +1,21 @@
 from abc import ABC, abstractmethod
 
 
+# 1. Abstraction & 2. Encapsulation
 class Person(ABC):
     def __init__(self, name, age):
         self.name = name
-        self.__age = age  # Private attribute
+        self.__age = age  # Encapsulated (private) attribute
 
     def get_age(self):
         return self.__age
 
     @abstractmethod
-    def role(self):
+    def role(self):  # Abstract interface
         pass
 
 
+# 3. Inheritance & 4. Polymorphism
 class Student(Person):
     def study(self):
         print(f"{self.name} is studying")
@@ -38,18 +40,15 @@ class Principal(Person):
         print(f"{self.name} is the principal")
 
 
-class GuidanceCounselor(Person):
-    def assist_students(self):
-        print(f"{self.name} is assisting students")
+# Create objects and store them in a single list
+people = [
+    Student("Lina", 20),
+    Teacher("Mona", 30),
+    Principal("Mr. X", 55)
+]
 
-    def role(self):
-        print(f"{self.name} is a guidance counselor")
-
-
-# Create and test a GuidanceCounselor object
-counselor = GuidanceCounselor("Sara", 35)
-
-print(f"Name: {counselor.name}")
-print(f"Age: {counselor.get_age()}")
-counselor.assist_students()
-counselor.role()
+# Demonstrate polymorphism: one interface (role()), multiple behaviors
+for person in people:
+    print(f"Name: {person.name} | Age: {person.get_age()}")
+    person.role()
+    print("-" * 30)
