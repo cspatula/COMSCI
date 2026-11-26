@@ -1,12 +1,18 @@
 # activitySchoolManagement.py
+from abc import ABC, abstractmethod
 
-class Person:
+
+class Person(ABC):
     def __init__(self, name, age):
         self.name = name
         self.__age = age  # Private attribute
 
     def get_age(self):
         return self.__age
+
+    @abstractmethod
+    def role(self):
+        pass
 
 
 class Student(Person):
@@ -25,20 +31,12 @@ class Teacher(Person):
         print(f"{self.name} is a teacher")
 
 
-# Create objects for both classes
+# Test concrete subclasses
 student = Student("Lina", 20)
 teacher = Teacher("Mona", 30)
 
-# Test Student
-print(f"Name: {student.name}")
-print(f"Age: {student.get_age()}")
-student.study()
 student.role()
-
-print("-" * 20)
-
-# Test Teacher
-print(f"Name: {teacher.name}")
-print(f"Age: {teacher.get_age()}")
-teacher.teach()
 teacher.role()
+
+# Attempting to instantiate Person directly raises a TypeError:
+# p = Person("Ali", 25)  # TypeError: Can't instantiate abstract class Person without an implementation for abstract method 'role'
