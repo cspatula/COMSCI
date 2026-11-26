@@ -1,25 +1,22 @@
 # activitySchoolManagement.py
 
-
 class Person:
     def __init__(self, name, age):
         self.name = name
-        self.__age = age
+        self.__age = age  # Private attribute
 
     def get_age(self):
         return self.__age
 
 
-# Child class inheriting from Person
-class Student(Person):
-    def study(self):
-        print(f"{self.name} is studying")
+class Teacher(Person):
+    def teach(self):
+        print(f"{self.name} is teaching")
 
 
-# Instantiate a Student object
-student1 = Student("Lina", 20)
+# Test the Teacher class
+teacher = Teacher("Mona", 30)
 
-# Test inherited features and the new method
-print(f"Name: {student1.name}")
-print(f"Age: {student1.get_age()} (note this age is privately accessed)")
-student1.study()
+print(f"Name: {teacher.name}")
+print(f"Age: {teacher.get_age()}")
+teacher.teach()
